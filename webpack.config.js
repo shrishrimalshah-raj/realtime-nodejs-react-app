@@ -47,6 +47,7 @@ module.exports = {
       aggregateTimeout: 300,
       ignored: /node_modules/,
     },
+    public: 'shrishrimalraj.online' // That solved it
   },
   plugins: [
     new CleanWebpackPlugin([outputDirectory]),
