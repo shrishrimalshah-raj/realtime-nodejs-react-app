@@ -244,3 +244,23 @@ This starts a server and listens on port 8080 for connections. The app responds 
     ```
 
 Above, we have modified editor configurations. Alternatively, this can be configured at the project level by following [this article](https://medium.com/@netczuk/your-last-eslint-config-9e35bace2f99).
+
+*********************************************************************************************************
+
+CROB JOB FOR TOKEN UPDATEING FROM NSE INDIA :-
+
+“At every 10th minute past every hour from 9 through 16 on every day-of-week from Monday through Friday.”
+*/10 9-16 * * 1-5
+
+
+CROB JOB FOR SEEDING DATA FROM NSE INDIA :-
+
+“At every 3rd minute past every hour from 9 through 16 on every day-of-week from Monday through Friday.”
+*/3 9-15 * * 1-5
+5-59/5 9-15 * * 1-5
+
+
+  console.log("************ CRON JOB START FOR UPDATING COOKIE ***************");
+
+BankNiftyOptionChain = https://www.nseindia.com/api/option-chain-indices?symbol=BANKNIFTY
+BankNiftyFuture = https://www.nseindia.com/api/liveEquity-derivatives?index=nifty_bank_fut
