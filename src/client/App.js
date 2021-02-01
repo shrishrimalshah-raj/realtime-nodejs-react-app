@@ -10,7 +10,7 @@ import BankNiftyChart from "./components/BankNiftyChart";
 
 import Switch from "@material-ui/core/Switch";
 
-const endpoint = "http://127.0.0.1:8080/";
+const endpoint = "http://localhost:8080/";
 
 const useStyles = makeStyles((theme) => ({
   container: {
