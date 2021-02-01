@@ -1,6 +1,3 @@
-require("dotenv").config();
-const envVars = process.env;
-
 import React, { useState, useEffect } from "react";
 import "./app.css";
 import socketIOClient from "socket.io-client";
@@ -13,7 +10,7 @@ import BankNiftyChart from "./components/BankNiftyChart";
 
 import Switch from "@material-ui/core/Switch";
 
-const endpoint = envVars.NODE_ENV === "dev" ? "http://localhost:8080/" : "http://shrishrimalraj.online/socket.io";
+const endpoint = process.env.REACT_APP_NODE_ENV === "dev" ? "http://localhost:8080/" : "http://shrishrimalraj.online/socket.io";
 
 const useStyles = makeStyles((theme) => ({
   container: {
