@@ -35,6 +35,7 @@ module.exports = {
     extensions: ["*", ".js", ".jsx"],
   },
   devServer: {
+    host: envVars.NODE_ENV === "dev" ? "localhost" : "shrishrimalraj.online", 
     port: 3000,
     open: true,
     historyApiFallback: true,
@@ -49,7 +50,7 @@ module.exports = {
       aggregateTimeout: 300,
       ignored: /node_modules/,
     },
-    public: envVars.NODE_ENV === "dev" ? "localhost:3000" : "shrishrimalraj.online",
+    // public: envVars.NODE_ENV === "dev" ? "localhost:3000" : "shrishrimalraj.online",
   },
   plugins: [
     new CleanWebpackPlugin([outputDirectory]),
