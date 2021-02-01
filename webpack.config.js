@@ -1,3 +1,5 @@
+require("dotenv").config();
+const envVars = process.env;
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
@@ -47,7 +49,7 @@ module.exports = {
       aggregateTimeout: 300,
       ignored: /node_modules/,
     },
-    public: 'shrishrimalraj.online' // That solved it
+    public: envVars.NODE_ENV === "dev" ? "localhost:3000" : "shrishrimalraj.online",
   },
   plugins: [
     new CleanWebpackPlugin([outputDirectory]),

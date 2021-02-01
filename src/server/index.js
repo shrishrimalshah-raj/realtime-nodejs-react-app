@@ -1,3 +1,6 @@
+require("dotenv").config();
+const envVars = process.env;
+
 import http from "http";
 import socketIo from "socket.io";
 import express from "express";
@@ -23,15 +26,18 @@ const server = http.createServer(app);
 
 const io = socketIo(server, {
   cors: {
-    origin: "http://localhost:3000",
+    origin:
+      envVars.NODE_ENV === "dev"
+        ? "http://localhost:3000"
+        : "http://shrishrimalraj.online",
     methods: ["GET", "POST"],
   },
 }); // < Interesting
 
 //Hello WORLD
-app.get('/', (req, res) => {
-  res.send("HELLO WORLD")
-})
+app.get("/", (req, res) => {
+  res.send("HELLO WORLD");
+});
 
 const getApiAndEmit = async (socket, date) => {
   const startOfDay = new Date(
