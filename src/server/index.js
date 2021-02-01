@@ -72,10 +72,6 @@ const getApiAndEmit = async (socket, date) => {
       200
     );
     
-    console.log('date ***', date)
-    console.log(' emit FromAPI ***')
-    console.log(' bankNiftyFutureData ***',bankNiftyFutureData)
-
     socket.emit("FromAPI", {
       bankNiftyoptionChainData,
       bankNiftyFutureData,
