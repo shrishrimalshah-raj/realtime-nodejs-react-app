@@ -29,7 +29,7 @@ const io = socketIo(server, {
     origin:
       envVars.NODE_ENV === "dev"
         ? "http://localhost:3000"
-        : "http://shrishrimalraj.online",
+        : "*",
     methods: ["GET", "POST"],
   },
 }); // < Interesting
