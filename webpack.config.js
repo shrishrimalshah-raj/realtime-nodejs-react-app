@@ -49,7 +49,7 @@ module.exports = {
       aggregateTimeout: 300,
       ignored: /node_modules/,
     },
-    public: envVars.NODE_ENV === "dev" && "localhost:3000",
+    // public: envVars.NODE_ENV === "dev" && "localhost:3000",
   },
   plugins: [
     new CleanWebpackPlugin([outputDirectory]),
