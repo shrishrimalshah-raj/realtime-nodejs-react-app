@@ -36,7 +36,7 @@ module.exports = {
   },
   devServer: {
     host: envVars.NODE_ENV === "dev" ? "localhost" : "shrishrimalraj.online", 
-    port: 3000,
+    port: envVars.NODE_ENV === "dev" ? 3000 : 80,
     open: true,
     historyApiFallback: true,
     proxy: {
