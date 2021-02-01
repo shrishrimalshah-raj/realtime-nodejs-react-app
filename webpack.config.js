@@ -35,7 +35,7 @@ module.exports = {
     extensions: ["*", ".js", ".jsx"],
   },
   devServer: {
-    host: envVars.NODE_ENV === "dev" ? "localhost" : "shrishrimalraj.online", 
+    host: envVars.NODE_ENV === "dev" ? "localhost" : "localhost", 
     port: envVars.NODE_ENV === "dev" ? 3000 : 3000,
     open: true,
     historyApiFallback: true,
