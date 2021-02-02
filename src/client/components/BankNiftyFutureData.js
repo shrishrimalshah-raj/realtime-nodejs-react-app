@@ -42,8 +42,8 @@ const useStyles = makeStyles({
 });
 
 const columns = [
-  "timestamp",
-  "underlyingValue",
+  "TIME",
+  "LTP",
   "openInterest",
   "openInterestSignal",
 ];

@@ -35,7 +35,7 @@ const BankNiftyChart = (props) => {
       {bankNiftyFutureData.length > 0 ? (
         <>
           <Chart
-            width={"100%"}
+            width={"60%"}
             height={"500"}
             chartType="Line"
             loader={<div>Loading Chart</div>}
@@ -44,7 +44,7 @@ const BankNiftyChart = (props) => {
               chart: {
                 title: "Bank Nifty and Open Interest Chart For Future Data",
               },
-              width: 1600,
+              width: 1000,
               height: 500,
               series: {
                 // Gives each series an axis name that matches the Y-axis below.
@@ -55,7 +55,7 @@ const BankNiftyChart = (props) => {
                 // Adds labels to each axis; they don't have to match the axis names.
                 y: {
                   openInterest: { label: "openInterest" },
-                  lastPrice: { label: "underlyingValue" },
+                  underlyingValue: { label: "underlyingValue" },
                 },
               },
             }}
@@ -69,7 +69,7 @@ const BankNiftyChart = (props) => {
       {bankNiftyoptionChainData.length > 0 ? (
         <>
           <Chart
-            width={"100%"}
+            width={"60%"}
             height={"500"}
             chartType="Line"
             loader={<div>Loading Chart</div>}
@@ -78,7 +78,7 @@ const BankNiftyChart = (props) => {
               chart: {
                 title: "Bank Nifty and Open Interest Chart For Option Chain Data",
               },
-              width: 1600,
+              width: 1050,
               height: 500,
               series: {
                 // Gives each series an axis name that matches the Y-axis below.
@@ -88,8 +88,8 @@ const BankNiftyChart = (props) => {
               axes: {
                 // Adds labels to each axis; they don't have to match the axis names.
                 y: {
-                  openInterest: { label: "diffChangeInOpenInterest" },
-                  lastPrice: { label: "underlyingValue" },
+                  diffChangeInOpenInterest: { label: "diffChangeInOpenInterest" },
+                  underlyingValue: { label: "underlyingValue" },
                 },
               },
             }}

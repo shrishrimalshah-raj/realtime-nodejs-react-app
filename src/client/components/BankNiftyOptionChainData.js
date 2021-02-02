@@ -24,7 +24,7 @@ const useStyles = makeStyles({
   },
   bold: {
     fontWeight: "bold",
-    fontSize: "1.5rem",
+    fontSize: "1rem",
   },
   fontSize: {
     fontSize: "1rem",
@@ -32,17 +32,17 @@ const useStyles = makeStyles({
 });
 
 const columns = [
-  "timestamp",
-  "underlyingValue",
-  "callOpenInterest",
-  "putOpenInterest",
-  "diffOpenInterest",
-  "openInterestSignal",
-  "pcr",
-  "callChangeInOpenInterest",
-  "putChangeInOpenInterest",
-  "diffChangeInOpenInterest",
-  "changeInOpenInterestSignal",
+  "TIME",
+  "LTP",
+  "CALLOI",
+  "PUTOI",
+  "DIFFOI",
+  "OISIGNAL",
+  "PCR",
+  "callChangeInOI",
+  "putChangeInOI",
+  "diffChangeInOI",
+  "changeInOISignal",
 ];
 
 export default function BankNiftyOptionChainData(props) {
@@ -56,7 +56,7 @@ export default function BankNiftyOptionChainData(props) {
           Loading ...
         </div>
       ) : (
-        <Table className={classes.table} aria-label="simple table">
+        <Table className={classes.table} aria-label="simple table"> 
           <TableHead>
             <TableRow>
               {columns.map((col) => (
