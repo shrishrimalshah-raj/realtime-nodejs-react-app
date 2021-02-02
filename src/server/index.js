@@ -78,7 +78,7 @@ const getApiAndEmit = async (socket, date) => {
     socket.emit("FromAPI", {
       bankNiftyoptionChainData,
       bankNiftyFutureData,
-      counter: i
+      counter: i++
     });
   } catch (error) {
     console.error(`Error: ${error.code}`);
