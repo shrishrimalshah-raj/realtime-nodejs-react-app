@@ -66,7 +66,6 @@ const App = () => {
     });
 
     socket.on("FromAPI", (data) => {
-      console.log('data ****', data)
       if (
         data.bankNiftyoptionChainData.length !== bankNiftyoptionChainData.length
       ) {
