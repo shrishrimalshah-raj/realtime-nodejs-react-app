@@ -119,7 +119,7 @@ const App = () => {
       {bankNiftyoptionChainData.length === 0 ||
       bankNiftyFutureData.length === 0 ? (
         <div style={{ textAlign: "center" }} className={classes.bold}>
-          No Data Found please try by changing date
+          Please wait for 10 seconds :) 
         </div>
       ) : (
         <>

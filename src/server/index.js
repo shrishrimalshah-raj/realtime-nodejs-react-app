@@ -121,8 +121,14 @@ server.listen(process.env.PORT || 8080, async () => {
     process.on("SIGTERM", cleanup);
 
     console.log(`Database connection successfully ${url}`);
-    cron.schedule("*/3 9-15 * * 1-5", seedDataIntoDB);
-    cron.schedule("*/10 9-16 * * 1-5", getCookie);
+    await getCookie()
+    await seedDataIntoDB()
+    cron.schedule("*/3 9-16 * * 1-5", seedDataIntoDB);
+    cron.schedule("*/20 9-16 * * 1-5", getCookie);
+
+    // cron.schedule("*/1 * * * 1-5", seedDataIntoDB);
+    // cron.schedule("*/2 22-23 * * 1-5", seedDataIntoDB);
+    // cron.schedule("*/30 * * * 1-5", getCookie);
   } catch (error) {
     console.log(`Database connection failed`);
   }
