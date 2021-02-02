@@ -39,6 +39,9 @@ app.get("/", (req, res) => {
   res.send("HELLO WORLD");
 });
 
+// Idx
+let i = 0;
+
 const getApiAndEmit = async (socket, date) => {
   const startOfDay = new Date(
     new Date(date).setUTCHours(0, 0, 0, 0)
@@ -75,6 +78,7 @@ const getApiAndEmit = async (socket, date) => {
     socket.emit("FromAPI", {
       bankNiftyoptionChainData,
       bankNiftyFutureData,
+      counter: i
     });
   } catch (error) {
     console.error(`Error: ${error.code}`);
