@@ -9,17 +9,19 @@ const getCookie = async () => {
   console.log(
     "************ CRON JOB START FOR UPDATING COOKIE ***************"
   );
+  try {
+    const response = await axios.get(
+      "https://www.nseindia.com/market-data/equity-derivatives-watch"
+    );
+    console.log("response cookie *********", response);
 
-  const response = await axios.get(
-    "https://www.nseindia.com/market-data/equity-derivatives-watch"
-  );
-
-  console.log('response cookie *********', response)
-
-  const headers = response.headers;
-  console.log('response cookie *******', headers)
-  cookie = headers["set-cookie"];
-  cookie = `${cookie[0]};${cookie[1]};`;
+    const headers = response.headers;
+    console.log("response cookie *******", headers);
+    cookie = headers["set-cookie"];
+    cookie = `${cookie[0]};${cookie[1]};`;
+  } catch (error) {
+    console.log('error getCookie() ====>', error)
+  }
 
   console.log("************ CRON JOB END FOR UPDATING COOKIE ***************");
 };
@@ -35,7 +37,6 @@ const seedDataIntoDB = async () => {
   await getBankNiftyOptionChainData();
   await getBankNiftyFutureData();
 };
-
 
 // cron.schedule("*/1 * * * *", getCookie);
 
