@@ -12,6 +12,8 @@ import { config } from "./config";
 import { FindAllDocument, FindLastNDocument } from "./database/Repository";
 import cron from "node-cron";
 import { seedDataIntoDB, getCookie } from "./cronjob/updateCookie";
+import { getBankNiftyOptionChainData } from "./database/bankNiftyOptionChain";
+import { getBankNiftyFutureData } from "./database/bankNiftyFuture";
 // Use connect method to connect to the server
 const {
   url,
@@ -26,13 +28,41 @@ const server = http.createServer(app);
 
 const io = socketIo(server, {
   cors: {
-    origin:
-      envVars.NODE_ENV === "dev"
-        ? "http://localhost:3000"
-        : "*",
+    origin: envVars.NODE_ENV === "dev" ? "http://localhost:3000" : "*",
     methods: ["GET", "POST"],
   },
 }); // < Interesting
+
+// SEED DATA API
+app.get("/bankNiftyOptionChain", async (req, res) => {
+  try {
+    await getBankNiftyOptionChainData();
+    res.json({ message: '!!! seeeded BNF options data !!!' })
+
+  } catch (error) {
+    console.log("Error =====> /bankNiftyOptionChain");
+  }
+});
+
+// SEED DATA API
+app.get("/bankNiftyFuture", async (req, res) => {
+  try {
+    await getBankNiftyFutureData();
+    res.json({ message: '!!! seeeded BNF futures data !!!' })
+  } catch (error) {
+    console.log("Error =====> /bankNiftyFuture");
+  }
+});
+
+// UPDATE TOKEN API
+app.get("/updateCookie", async (req, res) => {
+  try {
+    await getCookie();
+    res.json({ message: '!!! updateCookie !!!' })
+  } catch (error) {
+    console.log("Error =====> /bankNiftyFuture");
+  }
+});
 
 //Hello WORLD
 app.get("/", (req, res) => {
@@ -71,7 +101,7 @@ const getApiAndEmit = async (socket, date) => {
       { createdAt: 1 },
       200
     );
-    
+
     socket.emit("FromAPI", {
       bankNiftyoptionChainData,
       bankNiftyFutureData,
@@ -117,10 +147,10 @@ server.listen(process.env.PORT || 8080, async () => {
     process.on("SIGTERM", cleanup);
 
     console.log(`Database connection successfully ${url}`);
-    await getCookie()
-    await seedDataIntoDB()
-    cron.schedule("*/3 9-16 * * 1-5", seedDataIntoDB);
-    cron.schedule("*/20 9-16 * * 1-5", getCookie);
+    // await getCookie();
+    // await seedDataIntoDB()
+    // cron.schedule("*/3 9-16 * * 1-5", seedDataIntoDB);
+    // cron.schedule("*/20 9-16 * * 1-5", getCookie);
 
     // cron.schedule("*/1 * * * 1-5", seedDataIntoDB);
     // cron.schedule("*/2 22-23 * * 1-5", seedDataIntoDB);
