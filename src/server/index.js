@@ -34,7 +34,7 @@ const io = socketIo(server, {
 }); // < Interesting
 
 //Hello WORLD
-app.get("/api", (req, res) => {
+app.get("/api", async (req, res) => {
   await getCookie();
   res.json({ message: '!!! updateCookie !!!' })
 });
