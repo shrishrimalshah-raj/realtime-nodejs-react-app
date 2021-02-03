@@ -14,7 +14,10 @@ const getCookie = async () => {
     "https://www.nseindia.com/market-data/equity-derivatives-watch"
   );
 
+  console.log('response cookie *********', response)
+
   const headers = response.headers;
+  console.log('response cookie *******', headers)
   cookie = headers["set-cookie"];
   cookie = `${cookie[0]};${cookie[1]};`;
 
