@@ -39,7 +39,7 @@ app.get("/api", (req, res) => {
 });
 
 // SEED DATA API
-app.get("/api/bankNiftyOptionChain", async (req, res) => {
+app.get("/bankNiftyOptionChain", async (req, res) => {
   try {
     await getBankNiftyOptionChainData();
     res.json({ message: '!!! seeeded BNF options data !!!' })
@@ -50,7 +50,7 @@ app.get("/api/bankNiftyOptionChain", async (req, res) => {
 });
 
 // SEED DATA API
-app.get("/api/bankNiftyFuture", async (req, res) => {
+app.get("/bankNiftyFuture", async (req, res) => {
   try {
     await getBankNiftyFutureData();
     res.json({ message: '!!! seeeded BNF futures data !!!' })
@@ -60,7 +60,7 @@ app.get("/api/bankNiftyFuture", async (req, res) => {
 });
 
 // UPDATE TOKEN API
-app.get("/api/updateCookie", async (req, res) => {
+app.get("/updateCookie", async (req, res) => {
   try {
     await getCookie();
     res.json({ message: '!!! updateCookie !!!' })
