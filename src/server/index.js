@@ -33,6 +33,11 @@ const io = socketIo(server, {
   },
 }); // < Interesting
 
+//Hello WORLD
+app.get("/api", (req, res) => {
+  res.send("api");
+});
+
 // SEED DATA API
 app.get("/api/bankNiftyOptionChain", async (req, res) => {
   try {
