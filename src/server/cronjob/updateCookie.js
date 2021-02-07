@@ -27,7 +27,10 @@ let cookie = "";
 // };
 
 const getCookie = async () => {
-  const browser = await puppeteer.launch({ headless: false });
+  const browser = await puppeteer.launch({
+    headless: false,
+    executablePath: "/usr/bin/chromium-browser",
+  });
   const page = await browser.newPage();
   const websiteUrl =
     "https://www.nseindia.com/market-data/most-active-contracts";
