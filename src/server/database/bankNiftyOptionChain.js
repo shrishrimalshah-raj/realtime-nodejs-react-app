@@ -36,6 +36,8 @@ const getBankNiftyOptionChainData = async (req, res) => {
       headers
     );
 
+    console.log("data getBankNiftyOptionChainData ***", data);
+
     let timestamp = data.records.timestamp;
 
     const underlyingValue = Math.ceil(data.records.underlyingValue / 100) * 100;
@@ -103,6 +105,8 @@ const getBankNiftyOptionChainData = async (req, res) => {
     );
 
     if (!isDupicate) {
+      console.log("!! Data Inserted OPTIONS Data !!");
+
       await InsertOneDocument(
         collectionNameBankNiftyOptionChainOI,
         dataCallPutOI

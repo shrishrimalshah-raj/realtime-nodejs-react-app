@@ -35,6 +35,8 @@ const getBankNiftyFutureData = async (req, res) => {
       headers
     );
 
+    console.log("data getBankNiftyFutureData ***", data);
+
     const timestamp = data["timestamp"];
     const underlyingValue = data.data[0]["underlyingValue"];
     const openInterest = data.data.reduce((acc, curr) => {
@@ -66,6 +68,8 @@ const getBankNiftyFutureData = async (req, res) => {
 
     if (!isDupicate) {
       if (lastDocument.length === 0) {
+        console.log("!! Data Inserted FUTURES Data !!");
+
         await InsertOneDocument(
           collectionNameBankNiftyFuturesOI,
           openInterestData
@@ -78,6 +82,8 @@ const getBankNiftyFutureData = async (req, res) => {
             lastDocument[0]
           ),
         };
+        console.log("!! Data Inserted FUTURES Data !!");
+
         await InsertOneDocument(
           collectionNameBankNiftyFuturesOI,
           openInterestData
