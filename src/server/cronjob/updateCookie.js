@@ -27,10 +27,14 @@ let cookie = "";
 // };
 
 const getCookie = async () => {
+  // const browser = await puppeteer.launch({
+  // headless: false,
+  // executablePath: "/usr/bin/chromium-browser",
+  // args: ["--no-sandbox"],
+  // });
   const browser = await puppeteer.launch({
     headless: false,
-    // executablePath: "/usr/bin/chromium-browser",
-    args: ["--no-sandbox"],
+    args: ["--no-sandbox", "--disable-setuid-sandbox"],
   });
   const page = await browser.newPage();
   const websiteUrl =
