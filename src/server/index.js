@@ -45,7 +45,8 @@ app.get("/bankNiftyOptionChain", async (req, res) => {
     await getBankNiftyOptionChainData();
     res.json({ message: "!!! seeeded BNF options data !!!" });
   } catch (error) {
-    console.log("Error =====> /bankNiftyOptionChain");
+    console.log("Error =====> /bankNiftyOptionChain", error);
+    throw error;
   }
 });
 
@@ -55,7 +56,8 @@ app.get("/bankNiftyFuture", async (req, res) => {
     await getBankNiftyFutureData();
     res.json({ message: "!!! seeeded BNF futures data !!!" });
   } catch (error) {
-    console.log("Error =====> /bankNiftyFuture");
+    console.log("Error =====> /bankNiftyFuture", error);
+    throw error;
   }
 });
 
