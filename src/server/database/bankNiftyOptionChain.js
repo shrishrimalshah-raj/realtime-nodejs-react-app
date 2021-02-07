@@ -4,6 +4,11 @@ import AxiosService from "./AxiosService";
 import { strikePricesArray } from "./helper";
 import { cookie } from "../cronjob/updateCookie";
 import axios from "axios";
+import {
+  bnfOptionChainPuppeteer,
+  BNF_OPTION_CHAIN_DATA,
+} from "./bnfOptionChainPupeteer";
+
 const { collectionNameBankNiftyOptionChainOI } = config;
 
 const getBankNiftyOptionChainData = async (req, res) => {
@@ -31,12 +36,18 @@ const getBankNiftyOptionChainData = async (req, res) => {
       },
     };
 
-    const { data } = await axios.get(
-      "https://www.nseindia.com/api/option-chain-indices?symbol=BANKNIFTY",
-      headers
-    );
+    // const { data } = await axios.get(
+    //   "https://www.nseindia.com/api/option-chain-indices?symbol=BANKNIFTY",
+    //   headers
+    // );
 
-    console.log("data getBankNiftyOptionChainData ***", data);
+    let data = await bnfOptionChainPuppeteer();
+    // console.log("data ***", typeof data);
+
+    // if (typeof data === string) {
+    //   console.log("data ***", data);
+    //   data = await bnfOptionChainPuppeteer();
+    // }
 
     let timestamp = data.records.timestamp;
 

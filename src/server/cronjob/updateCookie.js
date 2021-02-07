@@ -65,7 +65,7 @@ const seedDataIntoDB = async () => {
   }
   console.log("after coookie ***", cookie);
   await getBankNiftyOptionChainData();
-  await getBankNiftyFutureData();
+  // await getBankNiftyFutureData();
 };
 
 // cron.schedule("*/1 * * * *", getCookie);

@@ -118,8 +118,13 @@ const App = () => {
           onChange={handleDateChange}
         />
       </form>
-      {bankNiftyoptionChainData.length === 0 &&
+      {/* {bankNiftyoptionChainData.length === 0 &&
       bankNiftyFutureData.length === 0 ? (
+        <div style={{ textAlign: "center" }} className={classes.bold}>
+          Please wait for 5 seconds :)
+        </div>
+      )  */}
+      {bankNiftyoptionChainData.length === 0 ? (
         <div style={{ textAlign: "center" }} className={classes.bold}>
           Please wait for 5 seconds :)
         </div>
@@ -149,9 +154,10 @@ const App = () => {
               rows={descendingOrderArray(bankNiftyoptionChainData)}
             />
           ) : (
-            <BankNiftyFutureData
-              rows={descendingOrderArray(bankNiftyFutureData)}
-            />
+            <>Empty page</>
+            // <BankNiftyFutureData
+            //   rows={descendingOrderArray(bankNiftyFutureData)}
+            // />
           )}
         </>
       )}
