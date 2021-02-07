@@ -126,7 +126,7 @@ io.on("connection", (socket) => {
     clearInterval(interval);
   }
 
-  interval = setInterval(() => getApiAndEmit(socket, date), 4000);
+  interval = setInterval(() => getApiAndEmit(socket, date), 3000);
 
   socket.on("disconnect", () => {
     console.log("Client disconnected");
@@ -153,7 +153,7 @@ server.listen(process.env.PORT || 8080, async () => {
     process.on("SIGINT", cleanup);
     process.on("SIGTERM", cleanup);
 
-    console.log(`Database connection successfully ${url}`);
+    console.log(`Database connection successfully`);
     await seedDataIntoDB();
     // await seedDataIntoDB();
     // await getCookie();

@@ -154,10 +154,9 @@ const App = () => {
               rows={descendingOrderArray(bankNiftyoptionChainData)}
             />
           ) : (
-            <>Empty page</>
-            // <BankNiftyFutureData
-            //   rows={descendingOrderArray(bankNiftyFutureData)}
-            // />
+            <BankNiftyFutureData
+              rows={descendingOrderArray(bankNiftyFutureData)}
+            />
           )}
         </>
       )}

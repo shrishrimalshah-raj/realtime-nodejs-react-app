@@ -31,7 +31,7 @@ const BankNiftyChart = (props) => {
   const { bankNiftyoptionChainData, bankNiftyFutureData } = props;
   return (
     <div>
-      {/* <h1 style={{ marginLeft: "200px" }}>Bank Nifty Future Chart</h1>
+      <h1 style={{ marginLeft: "200px" }}>Bank Nifty Future Chart</h1>
       {bankNiftyFutureData.length > 0 ? (
         <>
           <div style={{ marginLeft: "200px" }}>
@@ -66,7 +66,7 @@ const BankNiftyChart = (props) => {
         </>
       ) : null}
       <br />
-      <br /> */}
+      <br />
       <h1 style={{ marginLeft: "200px" }}>Bank Nifty Option Chain Chart</h1>
       {bankNiftyoptionChainData.length > 0 ? (
         <>

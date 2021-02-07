@@ -41,6 +41,8 @@ const getBankNiftyOptionChainData = async (req, res) => {
       headers
     );
 
+    console.log("getBankNiftyOptionChainData =====> data =====>", typeof data);
+
     // let data = await bnfOptionChainPuppeteer();
     // console.log("bnfOptionChainPuppeteer =====> data =====>", typeof data);
 

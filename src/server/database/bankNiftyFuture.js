@@ -35,7 +35,7 @@ const getBankNiftyFutureData = async (req, res) => {
       headers
     );
 
-    console.log("data getBankNiftyFutureData ***", data);
+    console.log("getBankNiftyFutureData =====> data =====>", typeof data);
 
     const timestamp = data["timestamp"];
     const underlyingValue = data.data[0]["underlyingValue"];
