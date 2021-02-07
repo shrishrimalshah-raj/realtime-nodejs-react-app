@@ -124,7 +124,7 @@ io.on("connection", (socket) => {
     clearInterval(interval);
   }
 
-  interval = setInterval(() => getApiAndEmit(socket, date), 2000);
+  interval = setInterval(() => getApiAndEmit(socket, date), 4000);
 
   socket.on("disconnect", () => {
     console.log("Client disconnected");
