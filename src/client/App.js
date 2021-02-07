@@ -13,7 +13,7 @@ import Switch from "@material-ui/core/Switch";
 const endpoint =
   process.env.REACT_APP_NODE_ENV === "dev"
     ? "http://localhost:8080/"
-    : "http://shrishrimalraj.online:8080/";
+    : "http://shrishrimalraj.online/socket.io";
 
 const useStyles = makeStyles((theme) => ({
   container: {
