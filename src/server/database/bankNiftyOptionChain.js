@@ -36,13 +36,13 @@ const getBankNiftyOptionChainData = async (req, res) => {
       },
     };
 
-    // const { data } = await axios.get(
-    //   "https://www.nseindia.com/api/option-chain-indices?symbol=BANKNIFTY",
-    //   headers
-    // );
+    const { data } = await axios.get(
+      "https://www.nseindia.com/api/option-chain-indices?symbol=BANKNIFTY",
+      headers
+    );
 
-    let data = await bnfOptionChainPuppeteer();
-    console.log("bnfOptionChainPuppeteer =====> data =====>", typeof data);
+    // let data = await bnfOptionChainPuppeteer();
+    // console.log("bnfOptionChainPuppeteer =====> data =====>", typeof data);
 
     // if (typeof data === string) {
     //   console.log("data ***", data);
