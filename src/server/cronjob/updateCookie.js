@@ -59,9 +59,11 @@ const seedDataIntoDB = async () => {
     console.log(
       `************ CRON FUNCTION CALLED for 1st time cookie === "" ***************`
     );
+    console.log("before oookie ***", cookie);
 
     await getCookie();
   }
+  console.log("after coookie ***", cookie);
   await getBankNiftyOptionChainData();
   await getBankNiftyFutureData();
 };
