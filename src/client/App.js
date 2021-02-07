@@ -10,7 +10,10 @@ import BankNiftyChart from "./components/BankNiftyChart";
 
 import Switch from "@material-ui/core/Switch";
 
-const endpoint = process.env.REACT_APP_NODE_ENV === "dev" ? "http://localhost:8080/" : "http://shrishrimalraj.online:8080/";
+const endpoint =
+  process.env.REACT_APP_NODE_ENV === "dev"
+    ? "http://localhost:8080/"
+    : "http://shrishrimalraj.online:8080/";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -118,7 +121,7 @@ const App = () => {
       {bankNiftyoptionChainData.length === 0 ||
       bankNiftyFutureData.length === 0 ? (
         <div style={{ textAlign: "center" }} className={classes.bold}>
-          Please wait for 10 seconds :) 
+          Please wait for 5 seconds :)
         </div>
       ) : (
         <>
@@ -152,7 +155,6 @@ const App = () => {
           )}
         </>
       )}
-      )
     </div>
   );
 };
