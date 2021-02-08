@@ -99,7 +99,15 @@ const App = () => {
     if (data.length === 0) {
       return [];
     } else {
-      return data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+      return data.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+    }
+  };
+
+  const ascendingOrderArray = (data = []) => {
+    if (data.length === 0) {
+      return [];
+    } else {
+      return data.sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp));
     }
   };
 
@@ -132,7 +140,9 @@ const App = () => {
         <>
           <div style={{ display: "flex", justifyContent: "center" }}>
             <BankNiftyChart
-              {...{ bankNiftyoptionChainData, bankNiftyFutureData }}
+              bankNiftyoptionChainData={bankNiftyoptionChainData}
+              bankNiftyFutureData={bankNiftyFutureData}
+
             />
           </div>
           <div style={{ display: "flex", justifyContent: "center" }}>
@@ -151,11 +161,11 @@ const App = () => {
 
           {isDisplayOptionChainData === false ? (
             <BankNiftyOptionChainData
-              rows={descendingOrderArray(bankNiftyoptionChainData)}
+              rows={bankNiftyoptionChainData}
             />
           ) : (
             <BankNiftyFutureData
-              rows={descendingOrderArray(bankNiftyFutureData)}
+              rows={bankNiftyFutureData}
             />
           )}
         </>

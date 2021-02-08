@@ -66,6 +66,15 @@ export default function BankNiftyFutureData(props) {
     }
   };
 
+  const descendingOrderArray = (data = []) => {
+    if (data.length === 0) {
+      return [];
+    } else {
+      return data.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+    }
+  };
+
+
   return (
     <>
       {rows.length === 0 ? (
@@ -88,7 +97,7 @@ export default function BankNiftyFutureData(props) {
             </TableRow>
           </TableHead>
           <TableBody>
-            {rows.map((row) => (
+            {descendingOrderArray(rows).map((row) => (
               <TableRow key={row.timestamp}>
                 <TableCell
                   component="th"

@@ -93,7 +93,7 @@ const getApiAndEmit = async (socket, date) => {
           $lt: new Date(endOfDay),
         },
       },
-      { createdAt: 1 },
+      { timestamp: -1 },
       200
     );
 
@@ -105,7 +105,7 @@ const getApiAndEmit = async (socket, date) => {
           $lt: new Date(endOfDay),
         },
       },
-      { createdAt: 1 },
+      { timestamp: -1 },
       200
     );
 
