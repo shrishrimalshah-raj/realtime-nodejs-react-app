@@ -140,8 +140,8 @@ const App = () => {
         <>
           <div style={{ display: "flex", justifyContent: "center" }}>
             <BankNiftyChart
-              bankNiftyoptionChainData={bankNiftyoptionChainData}
-              bankNiftyFutureData={bankNiftyFutureData}
+              bankNiftyoptionChainData={ascendingOrderArray(bankNiftyoptionChainData)}
+              bankNiftyFutureData={ascendingOrderArray(bankNiftyFutureData)}
 
             />
           </div>
