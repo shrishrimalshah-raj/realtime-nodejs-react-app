@@ -38,6 +38,7 @@ const columns = [
   "PUTOI",
   "DIFFOI",
   "OISIGNAL",
+  "priceChange",
   "PCR",
   "callChangeInOI",
   "putChangeInOI",
@@ -57,7 +58,6 @@ export default function BankNiftyOptionChainData(props) {
     }
   };
 
-
   return (
     <>
       {rows.length === 0 ? (
@@ -65,7 +65,7 @@ export default function BankNiftyOptionChainData(props) {
           Loading ...
         </div>
       ) : (
-        <Table className={classes.table} aria-label="simple table"> 
+        <Table className={classes.table} aria-label="simple table">
           <TableHead>
             <TableRow>
               {columns.map((col) => (
@@ -112,6 +112,18 @@ export default function BankNiftyOptionChainData(props) {
                 >
                   {row.openInterestSignal}
                 </TableCell>
+                {row.priceChange && (
+                  <TableCell
+                    align="center"
+                    className={
+                      row.priceChange.toFixed(2) > 0
+                        ? `${classes.greenColor} ${classes.bold}`
+                        : `${classes.redColor} ${classes.bold}`
+                    }
+                  >
+                    {row.priceChange.toFixed(2)}
+                  </TableCell>
+                )}
                 <TableCell align="center" className={classes.bold}>
                   {row.pcr}
                 </TableCell>

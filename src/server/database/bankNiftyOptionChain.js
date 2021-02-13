@@ -1,5 +1,9 @@
 import { config } from "../config";
-import { InsertOneDocument, FineOneDocument } from "./Repository";
+import {
+  InsertOneDocument,
+  FineOneDocument,
+  FindLastNDocument,
+} from "./Repository";
 import AxiosService from "./AxiosService";
 import { strikePricesArray } from "./helper";
 import { cookie } from "../cronjob/updateCookie";
@@ -50,6 +54,14 @@ const getBankNiftyOptionChainData = async (req, res) => {
     //   console.log("data ***", data);
     //   data = await bnfOptionChainPuppeteer();
     // }
+
+    //previous record
+    const dataRecord = await FindLastNDocument(
+      collectionNameBankNiftyOptionChainOI,
+      {},
+      { createdAt: -1 },
+      1
+    );
 
     let timestamp = data.records.timestamp;
 
@@ -108,6 +120,7 @@ const getBankNiftyOptionChainData = async (req, res) => {
       timestamp: new Date(timestamp),
       underlyingValue: data.records.underlyingValue,
       createdAt: new Date(),
+      priceChange: data.records.underlyingValue - dataRecord[0].underlyingValue,
     };
 
     const isDupicate = await FineOneDocument(
